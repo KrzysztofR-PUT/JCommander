@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.BorderPane?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ProgressIndicator?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.ExplorerController">
+<top>
+    <ToolBar>
+        <items>
+            <ComboBox fx:id="driveComboBox" />
+            <Button onMouseClicked="#moveUpDirButtonClicked" text=".." />
+            <Button onMouseClicked="#moveToRootButtonClicked" text="//" />
+        </items>
+    </ToolBar>
+</top>
+<center>
+    <TableView fx:id="filesTableView" onDragDetected="#onDragDetected" onDragDropped="#onDragDropped" onDragOver="#onDragOver">
+        <columns>
+            <TableColumn fx:id="nameTableColumn" text="%table.name" />
+            <TableColumn fx:id="sizeTableColumn" text="%table.size" />
+            <TableColumn fx:id="dateTableColumn" text="%table.date" />
+        </columns>
+    </TableView>
+</center>
+<bottom>
+    <HBox prefHeight="25">
+        <ProgressIndicator fx:id="progressIndicator"/>
+    </HBox>
+</bottom>
+</BorderPane>
